@@ -1,26 +1,24 @@
 <template>
-  <div id="app">
-    <app-bar/>
-  </div>
+  <v-app>
+    <app-bar></app-bar>
+    <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
 import AppBar from './components/AppBar.vue'
+import { mapActions } from 'vuex';
 
 export default {
   name: 'App',
   components: {
     AppBar
+  },
+  mounted: function() {
+    this.getRegionMap()
+  },
+  methods: {
+    ...mapActions(["getRegionMap"])
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-</style>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
+import router from "./router"
 import vuetify from './plugins/vuetify'
 import { initializeApp } from 'firebase/app'
 
@@ -17,10 +18,11 @@ const firebaseConfig = {
   measurementId: "G-WZRTHF5LTJ"
 };
 
-const firebaseApp = initializeApp(firebaseConfig)
+initializeApp(firebaseConfig)
 
 new Vue({
   store,
   vuetify,
+  router,
   render: h => h(App)
 }).$mount('#app')
